@@ -16,18 +16,30 @@ La base de données ne conserve pas de lien entre le vidéaste et ses vidéos. L
 - Remplir le fichier config.php :
 
     'DB_HOST' => '',
-    'DB_USERNAME' => '', 
-    'DB_PORT' => 3306, 
-    'DB_PASSWORD' => '', 
-    'DB_DATABASE' => 'yt_trendings', 
-    'DATABASE_CHARSET' => 'utf8',
-    'yt-key' => '', 
     
+    'DB_USERNAME' => '', 
+    
+    'DB_PORT' => 3306, 
+    
+    'DB_PASSWORD' => '', 
+    
+    'DB_DATABASE' => 'yt_trendings', 
+    
+    'DATABASE_CHARSET' => 'utf8',
+    
+    'yt-key' => '', 
+        
     'mail_host' => '', 
+    
     'mail_port' => 465, 
+    
     'mail_security' => '', // généralement soit "ssl", soit "STARTTLS".
+    
     'mail_username' => "",
+    
     'mail_name' => "", // Le nom affiché à la place de l'adresse mail dans la boite mail du réceptionneur.
+    
     'mail_password' => ''
+    
     
 Mettre en place un job cron toutes les 15 minutes "php -q pathtoproject/ytn.php"
