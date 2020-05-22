@@ -27,7 +27,7 @@ La base de données ne conserve pas de lien entre le vidéaste et ses vidéos. L
     
     'DATABASE_CHARSET' => 'utf8',
     
-    'yt-key' => '', 
+    'yt-key' => '', // clef du compte pour accéder à l'API YT
         
     'mail_host' => '', 
     
@@ -42,4 +42,4 @@ La base de données ne conserve pas de lien entre le vidéaste et ses vidéos. L
     'mail_password' => ''
     
     
-Mettre en place un job cron toutes les 15 minutes "php -q pathtoproject/ytn.php"
+Mettre en place un job cron toutes les 15 minutes "php -q /pathtoproject/ytn.php"
