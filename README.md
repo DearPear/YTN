@@ -43,3 +43,5 @@ La base de données ne conserve pas de lien entre le vidéaste et ses vidéos. L
     
     
 Mettre en place un job cron toutes les 15 minutes "php -q /pathtoproject/ytn.php"
+
+Le fichier account.php contient les commandes de base pour gérer un compte, donc activer / désactiver les deux types de notifications et supprimer un compte. Des liens sont envoyés par mail depuis le fichier ytn.php .
