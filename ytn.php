@@ -211,6 +211,7 @@ $videos = json_decode($result);
 foreach($videos->items as $key => $item){
 
     $videos->items[$key]->position = $key+1;
+    
     if(in_array($videos->items[$key]->snippet->channelId, $channelsToNotify)){ 
         echo "tracked video found<br>";
         if(!in_array($videos->items[$key]->id, $videosAlreadyNotified)){
@@ -220,7 +221,7 @@ foreach($videos->items as $key => $item){
                 if($user['channelID'] == $videos->items[$key]->snippet->channelId)
                     $userToNotify = $user;
                 }
-            if(myMail::sendNewNotification($videos->items[$key],$user)){
+            if(myMail::sendNewNotification($videos->items[$key],$userToNotify)){
                 myDB::addVideo($videos->items[$key]);
                 echo "video : " .$videos->items[$key]->id . " notifiée et enregistrée avec succès !<br>";
             }
@@ -233,13 +234,20 @@ foreach($videos->items as $key => $item){
             $oldpos = myDB::getVideoPosition($videos->items[$key]->id);
             if($user['trackPosition'] && $videos->items[$key]->position < $oldpos){
                 echo "new position<br>";
-                if(myMail::sendTrackNotification($videos->items[$key], $user,$oldpos)){
+                $userToNotify;
+                foreach($users as $user){
+                if($user['channelID'] == $videos->items[$key]->snippet->channelId)
+                    $userToNotify = $user;
+                }
+                if(myMail::sendTrackNotification($videos->items[$key], $userToNotify,$oldpos)){
                     myDB::updateVideoPos($videos->items[$key]);
                     echo "Progression de la video : " .$videos->items[$key]->id . " notifiée et enregistrée avec succès !<br>";
                 }
             }
             else {
                 echo "NO new position<br>";
+                echo "actual pos :" . $videos->items[$key]->position ;
+                echo "old pos : " .$oldpos;
             }
         }
     }   
