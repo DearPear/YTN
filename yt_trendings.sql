@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 22 mai 2020 à 17:58
+-- Généré le : lun. 25 mai 2020 à 14:56
 -- Version du serveur :  10.3.23-MariaDB
 -- Version de PHP : 7.3.6
 
@@ -33,7 +33,8 @@ CREATE TABLE `users` (
   `channelID` tinytext NOT NULL,
   `email` tinytext NOT NULL,
   `token` tinytext NOT NULL,
-  `trackPosition` tinyint(1) NOT NULL DEFAULT 0
+  `trackPosition` tinyint(1) NOT NULL DEFAULT 0,
+  `active` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
